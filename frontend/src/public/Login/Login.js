@@ -1,31 +1,25 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { doLogin } from "../../services/AuthServices";
+import { doLogin } from "../../services/AuthService";
 
 function Login() {
   const history = useHistory();
   const [email, setEmail] = useState("");
-  const [password, setPassowrd] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   function onChangeInput(event) {
-    if (event.target.id === "email") {
-      setEmail(event.target.value);
-    } else {
-      setPassowrd(event.target.value);
-    }
+    if (event.target.id === "email") setEmail(event.target.value);
+    else setPassword(event.target.value);
   }
 
   function onSubmit(event) {
     event.preventDefault();
-    // console.log(email + ' : ' + password)
+
     doLogin(email, password)
       .then((response) => {
-        console.log(response);
-        if (response) {
-          localStorage.setItem("token", response.token);
-          history.push("/dashboard");
-        }
+        localStorage.setItem("token", response.token);
+        history.push("/settings");
       })
       .catch((err) => {
         console.error(err);
@@ -35,7 +29,7 @@ function Login() {
 
   return (
     <main>
-      <section className="vh-lg-100 mt-5 mg-lg-0 bg-soft d-flex align-items-center">
+      <section className="vh-lg-100 mt-5 mt-lg-0 bg-soft d-flex align-items-center">
         <div className="container">
           <p className="text-center">
             <Link
@@ -123,7 +117,6 @@ function Login() {
                       />
                     </div>
                   </div>
-
                   <div className="d-flex justify-content-between align-items-top mb-4">
                     <div className="form-check">
                       <input
@@ -139,11 +132,16 @@ function Login() {
                         Remember me
                       </label>
                     </div>
+                    <div>
+                      <Link to="/forgot-password" className="small text-right">
+                        Lost password?
+                      </Link>
+                    </div>
                   </div>
                 </div>
                 <div className="d-grid">
                   <button type="submit" className="btn btn-gray-800">
-                    Sign in
+                    Sign In
                   </button>
                 </div>
                 {error ? (

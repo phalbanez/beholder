@@ -21,6 +21,7 @@ function Login() {
     // console.log(email + ' : ' + password)
     doLogin(email, password)
       .then((response) => {
+        console.log(response);
         if (response) {
           localStorage.setItem("token", response.token);
           history.push("/dashboard");

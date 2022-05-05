@@ -19,6 +19,8 @@ app.post('/logout', authController.doLogout);
 
 app.get('/settings', authMiddleware, settingsController.getSettings);
 
+app.patch('/settings', authMiddleware, settingsController.updateSettings);
+
 app.use('/', (req, res, next) => {
   res.send('Hello World2');
 });

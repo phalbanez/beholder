@@ -5,18 +5,33 @@
   "main": "index.js",
   "scripts": {
     "start": "node -r dotenv/config ./src/server",
-    "dev": "npx nodemon --trace-warnings -r dotenv/config ./src/server"
+    "dev": "npx nodemon --trace-warnings -r dotenv/config ./src/server",
+    "createdb": "npx sequelize-cli db:create",
+    "migratedb": "npx sequelize-cli db:migrate",
+    "seeddb": "npx sequelize-cli db:seed:all"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@sendgrid/mail": "^7.4.6",
+    "aes-js": "^3.1.2",
+    "axios": "^0.21.4",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
-    "dotenv": "^16.0.0",
-    "express": "^4.18.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
-    "helmet": "^5.0.2",
-    "jsonwebtoken": "^8.5.1"
+    "helmet": "^4.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.3.0",
+    "node-binance-api": "^0.12.5",
+    "node-schedule": "^2.0.0",
+    "sequelize": "^6.6.5",
+    "technicalindicators": "^3.1.0",
+    "telegraf": "^4.4.2",
+    "twilio": "^3.67.2",
+    "winston": "^3.3.3"
   }
 }

@@ -2,27 +2,33 @@ const express = require('express');
 require('express-async-errors');
 const cors = require('cors');
 const helmet = require('helmet');
+
 const app = express();
+const morgan = require('morgan');
 
 const errorMiddleware = require('./middlewares/errorMiddleware');
 const authMiddleware = require('./middlewares/authMiddleware');
 
 const authController = require('./controllers/authController');
-const settingsController = require('./controllers/settingsController');
 
-app.use(cors());
+app.use(cors({ origin: process.env.CORS_ORIGIN }));
 app.use(helmet());
 app.use(express.json());
+app.use(morgan('dev'));
 
 app.post('/login', authController.doLogin);
 app.post('/logout', authController.doLogout);
 
-app.get('/settings', authMiddleware, settingsController.getSettings);
+const settingsRouter = require('./routers/settingsRouter');
 
-app.patch('/settings', authMiddleware, settingsController.updateSettings);
+app.use('/settings', authMiddleware, settingsRouter);
 
-app.use('/', (req, res, next) => {
-  res.send('Hello World2');
+const symbolsRouter = require('./routers/symbolsRouter');
+
+app.use('/symbols', authMiddleware, symbolsRouter);
+
+app.get('/', (req, res, next) => {
+  res.send('Hello World');
 });
 
 app.use(errorMiddleware);

@@ -4,6 +4,7 @@ import LogModal from '../../components/Logs/LogModal';
 import Menu from '../../components/Menu/Menu';
 import Toast from '../../components/Toast/Toast';
 import { getSettings, updateSettings } from '../../services/SettingsService';
+import Symbols from './Symbols';
 
 function Settings() {
   const confirmPassword = useRef('');
@@ -352,6 +353,7 @@ function Settings() {
             </div>
           </div>
         </div>
+        <Symbols />
         <Footer />
       </main>
       <Toast text={notification.text} type={notification.type} />

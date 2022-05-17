@@ -1,23 +1,21 @@
 module.exports = {
   env: {
-    es6: true,
+    es2021: true,
     node: true,
   },
-  extends: ['airbnb-base', 'prettier'],
-  plugins: ['prettier'],
+  extends: ['airbnb-base', 'plugin:prettier/recommended'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
   },
   parserOptions: {
-    ecmaVersion: 2018,
+    ecmaVersion: 'latest',
     sourceType: 'module',
   },
   rules: {
-    'prettier/prettier': 'error',
-    'class-methods-use-this': 'off',
-    'no-param-reassign': 'off',
-    camelcase: 'off',
+    // 'class-methods-use-this': 'off',
+    // 'no-param-reassign': 'off',
+    // camelcase: 'off',
     'no-unused-vars': ['error', { argsIgnorePattern: 'next' }],
   },
 };

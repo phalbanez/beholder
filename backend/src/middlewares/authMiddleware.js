@@ -1,20 +1,26 @@
+const authController = require('../controllers/authController');
 const jwt = require('jsonwebtoken');
-const { isBlacklisted } = require('../controllers/authController');
+const logger = require('../utils/logger');
 
 module.exports = (req, res, next) => {
-  const token = req.headers['authorization'];
+    if(!process.env.JWT_SECRET) return res.status(500).json('No JWT Secret.');
 
-  if (token) {
-    try {
-      const decoded = jwt.verify(token, process.env.JWT_SECRET);
-      if (decoded && !isBlacklisted(token)) {
-        res.locals.token = decoded;
-        return next();
-      }
-    } catch (error) {
-      console.error(error);
+    const token = req.headers['authorization'];
+    if (token) {
+        try {
+            const decoded = jwt.verify(token, process.env.JWT_SECRET);
+            if (decoded) {
+                if (!authController.isBlacklisted(token)) {
+                    res.locals.token = decoded;
+                    return next();
+                }
+            }
+        } catch (err) {
+            if (err instanceof jwt.TokenExpiredError || err instanceof jwt.JsonWebTokenError)
+                logger('system', err.message);
+            else
+                logger('system', err);
+        }
     }
-  }
-
-  res.sendStatus(401);
-};
+    res.status(401).json('Unauthorized');
+}

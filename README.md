@@ -1,2 +1,2 @@
-# beholder
-Beholder - Binance Crypto Bot - In Development
+# Beholder 2.0
+A multicoin traderbot for Binance. Evolved.

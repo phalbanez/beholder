@@ -1,0 +1,24 @@
+#tabContent {
+  border-left: 0.0625rem solid #9ca3af;
+  border-right: 0.0625rem solid #9ca3af;
+  border-bottom: 0.0625rem solid #9ca3af;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.nav-tabs .nav-link {
+  margin-bottom: 0px;
+}
+
+.input-group .alert {
+  font-size: 0.6rem;
+}
+
+.divScrollBadges {
+  overflow: auto;
+  max-height: 100px;
+}
+
+.hourPart {
+  max-width: 66px;
+}

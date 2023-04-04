@@ -1,14 +1,13 @@
 const express = require('express');
-
 const router = express.Router();
 const symbolsController = require('../controllers/symbolsController');
 
-router.get('/', symbolsController.getSymbols);
-
-router.get('/:symbol', symbolsController.getSymbol);
+router.post('/sync', symbolsController.syncSymbols);
 
 router.patch('/:symbol', symbolsController.updateSymbol);
 
-router.post('/:sync', symbolsController.syncSymbols);
+router.get('/:symbol', symbolsController.getSymbol);
+
+router.get('/', symbolsController.getSymbols);
 
 module.exports = router;

@@ -1,0 +1,23 @@
+.tableFixHead {
+    overflow: auto;
+    height: 100px;
+}
+
+.tableFixHead thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.divScroll {
+    overflow: auto;
+    max-height: 300px;
+}
+
+.divTradingView {
+    height: 500px;
+}
+
+.cardDark{
+    background-color: #363c4e;
+}

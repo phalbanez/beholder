@@ -1,23 +1,31 @@
 const settingsRepository = require('../repositories/settingsRepository');
+const { getFromCache } = require('../utils/push');
 
 async function getSettings(req, res, next) {
-  const { id } = res.locals.token;
-  const settings = await settingsRepository.getSettings(id);
+    const id = res.locals.token.id;
+    const settings = await settingsRepository.getSettings(id);
 
-  const plainSettings = settings.get({ plain: true });
-  delete plainSettings.password;
-  delete plainSettings.secretKey;
+    const plainSettings = settings.get({ plain: true });
+    delete plainSettings.password;
+    delete plainSettings.secretKey;
 
-  res.json(plainSettings);
+    res.json(plainSettings);
 }
 
 async function updateSettings(req, res, next) {
-  const { id } = res.locals.token;
-  const newSettings = req.body;
+    const id = res.locals.token.id;
+    const newSettings = req.body;
 
-  await settingsRepository.updateSettings(id, newSettings);
-
-  res.sendStatus(200);
+    await settingsRepository.updateSettings(id, newSettings);
+    res.sendStatus(200);
 }
 
-module.exports = { getSettings, updateSettings };
+async function getAlerts(req, res, next) {
+    res.json(getFromCache());
+}
+
+module.exports = {
+    getSettings,
+    updateSettings,
+    getAlerts
+}

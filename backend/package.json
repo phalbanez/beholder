@@ -8,7 +8,8 @@
     "dev": "npx nodemon --trace-warnings -r dotenv/config ./src/server",
     "createdb": "npx sequelize-cli db:create",
     "migratedb": "npx sequelize-cli db:migrate",
-    "seeddb": "npx sequelize-cli db:seed:all"
+    "seeddb": "npx sequelize-cli db:seed:all",
+    "build": "npm i && npm run migratedb && npm run seeddb"
   },
   "keywords": [],
   "author": "",
@@ -26,19 +27,12 @@
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
     "mysql2": "^2.3.0",
-    "node-binance-api": "^0.12.5",
+    "node-binance-api": "^0.13.1",
     "node-schedule": "^2.0.0",
     "sequelize": "^6.6.5",
     "technicalindicators": "^3.1.0",
     "telegraf": "^4.4.2",
     "twilio": "^3.67.2",
     "winston": "^3.3.3"
-  },
-  "devDependencies": {
-    "eslint": "^8.15.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "prettier": "2.6.2"
   }
 }

@@ -1,0 +1,9 @@
+{
+    "apps": [
+        {
+            "name": "beholder",
+            "script": "npm",
+            "args": "start"
+        }
+    ]
+}

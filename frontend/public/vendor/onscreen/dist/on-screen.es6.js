@@ -1,40 +1,9 @@
 /**
- * Observes DOM mutations and runs a callback function when
- * detecting one.
- *
- * @param {node} obj The DOM node you want to observe
- * @param {function} callback The callback function you want to call
- * @return {MutationObserver} obs The mutation observer instance used to track DOM mutations
- */
-function observeDOM(obj, callback) {
-    var MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
-
-    /* istanbul ignore else */
-    if (MutationObserver) {
-        var obs = new MutationObserver(callback);
-
-        obs.observe(obj, {
-            childList: true,
-            subtree: true
-        });
-
-        return obs;
-    }
-
-    obj.addEventListener('DOMNodeInserted', callback, false);
-    obj.addEventListener('DOMNodeRemoved', callback, false);
-
-    return null;
-}
-
-/**
  * Attaches the scroll event handler
  *
  * @return {void}
  */
 function attach() {
-    var _this = this;
-
     var container = this.options.container;
 
     if (container instanceof HTMLElement) {
@@ -44,13 +13,6 @@ function attach() {
             container.style.position = 'relative';
         }
     }
-
-    this._observer = observeDOM(document.querySelector('body'), function () {
-        Object.keys(_this.trackedElements).forEach(function (element) {
-            _this.on('enter', element);
-            _this.on('leave', element);
-        });
-    });
 
     container.addEventListener('scroll', this._scroll, { passive: true });
     window.addEventListener('resize', this._scroll, { passive: true });
@@ -204,12 +166,6 @@ function debouncedScroll() {
 
     var timeout = void 0;
 
-    if (this.options.debounce === false) {
-        return function () {
-            return eventHandler(_this.trackedElements, _this.options);
-        };
-    }
-
     return function () {
         clearTimeout(timeout);
 
@@ -225,13 +181,9 @@ function debouncedScroll() {
  * @return {void}
  */
 function destroy() {
-    if (this._observer instanceof MutationObserver) {
-        this._observer.disconnect();
-    }
-
-    this.options.container.removeEventListener('scroll', this._scroll);
-    window.removeEventListener('resize', this._scroll);
-    this.attached = false;
+  this.options.container.removeEventListener('scroll', this._scroll);
+  window.removeEventListener('resize', this._scroll);
+  this.attached = false;
 }
 
 /**
@@ -303,12 +255,39 @@ function on(event, selector, callback) {
 }
 
 /**
+ * Observes DOM mutations and runs a callback function when
+ * detecting one.
+ *
+ * @param {node} obj The DOM node you want to observe
+ * @param {function} callback The callback function you want to call
+ * @return {void}
+ */
+function observeDOM(obj, callback) {
+    var MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+
+    /* istanbul ignore else */
+    if (MutationObserver) {
+        var obs = new MutationObserver(callback);
+
+        obs.observe(obj, {
+            childList: true,
+            subtree: true
+        });
+    } else {
+        obj.addEventListener('DOMNodeInserted', callback, false);
+        obj.addEventListener('DOMNodeRemoved', callback, false);
+    }
+}
+
+/**
  * Detects wether DOM nodes enter or leave the viewport
  *
  * @constructor
  * @param {object} options The configuration object
  */
 function OnScreen() {
+    var _this = this;
+
     var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { tolerance: 0, debounce: 100, container: window };
 
     this.options = {};
@@ -335,10 +314,6 @@ function OnScreen() {
         },
         debounce: {
             get: function get() {
-                if (options.debounce === false) {
-                    return false;
-                }
-
                 return parseInt(options.debounce, 10) || 100;
             },
             set: function set(value) {
@@ -360,6 +335,13 @@ function OnScreen() {
         configurable: false,
         writable: false,
         value: this._debouncedScroll.call(this)
+    });
+
+    observeDOM(document.querySelector('body'), function () {
+        Object.keys(_this.trackedElements).forEach(function (element) {
+            _this.on('enter', element);
+            _this.on('leave', element);
+        });
     });
 
     this.attach();

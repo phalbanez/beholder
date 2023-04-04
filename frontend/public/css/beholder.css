@@ -1,0 +1,14 @@
+svg {
+  pointer-events: none;
+}
+
+textarea {
+  white-space: pre;
+  overflow-wrap: normal;
+  overflow-x: scroll;
+}
+
+.divScrollBeholder {
+  overflow: auto;
+  max-height: 400px;
+}

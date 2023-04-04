@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="32"
+   height="32"
+   viewBox="0 0 32 32"
+   version="1.1"
+   id="svg12256"
+   sodipodi:docname="busd.svg"
+   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview12258"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="11.600971"
+     inkscape:cx="15.171144"
+     inkscape:cy="17.929534"
+     inkscape:window-width="2560"
+     inkscape:window-height="1017"
+     inkscape:window-x="1358"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg12256" />
+  <defs
+     id="defs12240">
+    <filter
+       id="a"
+       width="1.08"
+       height="1.0966667"
+       x="-0.04"
+       y="-0.04"
+       filterUnits="objectBoundingBox">
+      <feOffset
+         dy=".5"
+         in="SourceAlpha"
+         result="shadowOffsetOuter1"
+         id="feOffset12217" />
+      <feGaussianBlur
+         in="shadowOffsetOuter1"
+         result="shadowBlurOuter1"
+         stdDeviation=".5"
+         id="feGaussianBlur12219" />
+      <feComposite
+         in="shadowBlurOuter1"
+         in2="SourceAlpha"
+         operator="out"
+         result="shadowBlurOuter1"
+         id="feComposite12221" />
+      <feColorMatrix
+         in="shadowBlurOuter1"
+         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.199473505 0"
+         id="feColorMatrix12223" />
+    </filter>
+    <filter
+       id="d"
+       width="1.12"
+       height="1.145"
+       x="-0.06"
+       y="-0.06"
+       filterUnits="objectBoundingBox">
+      <feOffset
+         dy=".5"
+         in="SourceAlpha"
+         result="shadowOffsetOuter1"
+         id="feOffset12226" />
+      <feGaussianBlur
+         in="shadowOffsetOuter1"
+         result="shadowBlurOuter1"
+         stdDeviation=".5"
+         id="feGaussianBlur12228" />
+      <feColorMatrix
+         in="shadowBlurOuter1"
+         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.204257246 0"
+         id="feColorMatrix12230" />
+    </filter>
+    <linearGradient
+       id="c"
+       x1="50%"
+       x2="50%"
+       y1="0%"
+       y2="100%">
+      <stop
+         offset="0%"
+         stop-color="#FFF"
+         stop-opacity=".5"
+         id="stop12233" />
+      <stop
+         offset="100%"
+         stop-opacity=".5"
+         id="stop12235" />
+    </linearGradient>
+    <circle
+       id="b"
+       cx="16"
+       cy="15"
+       r="15" />
+    <path
+       id="e"
+       d="M12.116 13.404L16 9.52l3.886 3.886 2.26-2.26L16 5l-6.144 6.144 2.26 2.26zM6 15l2.26-2.26L10.52 15l-2.26 2.26L6 15zm6.116 1.596L16 20.48l3.886-3.886 2.26 2.259L16 25l-6.144-6.144-.003-.003 2.263-2.257zM21.48 15l2.26-2.26L26 15l-2.26 2.26L21.48 15zm-3.188-.002h.002V15L16 17.294l-2.291-2.29-.004-.004.004-.003.401-.402.195-.195L16 12.706l2.293 2.293z" />
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter16560"
+       x="-0.060301004"
+       y="-0.060121536"
+       width="1.120602"
+       height="1.1202431">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="8.4170147"
+         id="feGaussianBlur16562" />
+    </filter>
+  </defs>
+  <g
+     fill="none"
+     id="g12254">
+    <use
+       fill="#000"
+       filter="url(#a)"
+       xlink:href="#b"
+       id="use12242" />
+    <use
+       fill="#F3BA2F"
+       fill-rule="evenodd"
+       xlink:href="#b"
+       id="use12244" />
+    <use
+       fill="url(#c)"
+       fill-rule="evenodd"
+       style="mix-blend-mode:soft-light"
+       xlink:href="#b"
+       id="use12246" />
+    <circle
+       cx="16"
+       cy="15"
+       r="14.5"
+       stroke="#000"
+       stroke-opacity=".097"
+       id="circle12248" />
+  </g>
+  <g
+     id="g15592"
+     data-name="Layer 1"
+     transform="matrix(0.059452,0,0,0.05927328,6.0001743,5.2500054)"
+     style="fill:#c2972c;fill-opacity:1;stroke:none;filter:url(#filter16560)">
+    <path
+       class="cls-1"
+       d="m 168.2,0.71 41.5,42.5 -104.5,104.5 -41.5,-41.5 z"
+       id="path15584"
+       style="fill:#c2972c;fill-opacity:1;stroke:none" />
+    <path
+       class="cls-1"
+       d="m 231.2,63.71 41.5,42.5 -167.5,167.5 -41.5,-41.5 z"
+       id="path15586"
+       style="fill:#c2972c;fill-opacity:1;stroke:none" />
+    <path
+       class="cls-1"
+       d="m 42.2,126.71 41.5,42.5 -41.5,41.5 -41.5,-41.5 z"
+       id="path15588"
+       style="fill:#c2972c;fill-opacity:1;stroke:none" />
+    <path
+       class="cls-1"
+       d="m 294.2,126.71 41.5,42.5 -167.5,167.5 -41.5,-41.5 z"
+       id="path15590"
+       style="fill:#c2972c;fill-opacity:1;stroke:none" />
+  </g>
+  <g
+     id="Layer_1-2"
+     data-name="Layer 1"
+     transform="matrix(0.059452,0,0,0.05927328,6.0001743,4.6897075)"
+     style="fill:#ffffff;fill-opacity:1;stroke:none">
+    <path
+       class="cls-1"
+       d="m 168.2,0.71 41.5,42.5 -104.5,104.5 -41.5,-41.5 z"
+       id="path694"
+       style="fill:#ffffff;fill-opacity:1;stroke:none" />
+    <path
+       class="cls-1"
+       d="m 231.2,63.71 41.5,42.5 -167.5,167.5 -41.5,-41.5 z"
+       id="path696"
+       style="fill:#ffffff;fill-opacity:1;stroke:none" />
+    <path
+       class="cls-1"
+       d="m 42.2,126.71 41.5,42.5 -41.5,41.5 -41.5,-41.5 z"
+       id="path698"
+       style="fill:#ffffff;fill-opacity:1;stroke:none" />
+    <path
+       class="cls-1"
+       d="m 294.2,126.71 41.5,42.5 -167.5,167.5 -41.5,-41.5 z"
+       id="path700"
+       style="fill:#ffffff;fill-opacity:1;stroke:none" />
+  </g>
+</svg>
